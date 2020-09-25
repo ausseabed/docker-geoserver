@@ -82,27 +82,7 @@ if [[ ! -f /tmp/resources/libjpeg-turbo-official_1.5.3_amd64.deb ]]; then \
 
 pushd /tmp/
 
- if [[ ! -f ${resources_dir}/jai-1_1_3-lib-linux-amd64.tar.gz ]]; then \
-    ${request} http://download.java.net/media/jai/builds/release/1_1_3/jai-1_1_3-lib-linux-amd64.tar.gz \
-    -P ${resources_dir};\
-    fi; \
-    if [[ ! -f ${resources_dir}/jai_imageio-1_1-lib-linux-amd64.tar.gz ]]; then \
-    ${request} http://download.java.net/media/jai-imageio/builds/release/1.1/jai_imageio-1_1-lib-linux-amd64.tar.gz \
-    -P ${resources_dir};\
-    fi; \
-    mv ./resources/jai-1_1_3-lib-linux-amd64.tar.gz ./ && \
-    mv ./resources/jai_imageio-1_1-lib-linux-amd64.tar.gz ./ && \
-    gunzip -c jai-1_1_3-lib-linux-amd64.tar.gz | tar xf - && \
-    gunzip -c jai_imageio-1_1-lib-linux-amd64.tar.gz | tar xf - && \
 
-    mv /tmp/jai-1_1_3/lib/*.jar ${JAVA_HOME} && \
-    mv /tmp/jai-1_1_3/lib/*.so ${JAVA_HOME} && \
-    mv /tmp/jai_imageio-1_1/lib/*.jar ${JAVA_HOME} && \
-    mv /tmp/jai_imageio-1_1/lib/*.so ${JAVA_HOME} && \
-    rm /tmp/jai-1_1_3-lib-linux-amd64.tar.gz && \
-    rm -r /tmp/jai-1_1_3 && \
-    rm /tmp/jai_imageio-1_1-lib-linux-amd64.tar.gz && \
-    rm -r /tmp/jai_imageio-1_1
 
 pushd ${CATALINA_HOME}
 
